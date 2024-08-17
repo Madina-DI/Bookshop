@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title Document
+  body
+    nav.navigation
+      .navigation-block
+        .navigation-container
+          .navigation-logo
+            h1 Bookshop
+          .navigation-menu
+            button.navigation-menu__button
+              a(href='#') books
+            button.navigation-menu__button
+              a(href='#') audiobooks
+            button.navigation-menu__button
+              a(href='#') Stationery & gifts
+            button.navigation-menu__button
+              a(href='#') blog
+          .navigation-icon
+            button.navigation-icon__users(title='Аккаунт')
+              a(href='#')
+                img(src='./img/user.svg' alt='account')
+            button.navigation-icon__search(title='Поиск')
+              a(href='#')
+                img(src='./img/search.svg' alt='search')
+            button.navigation-icon__shop(title='Корзина')
+              a(href='#')
+                img(src='./img/shop.svg' alt='basket')
+                span.navigation-icon__functional-basket
+    header
+    main
