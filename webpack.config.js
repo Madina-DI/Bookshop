@@ -3,7 +3,6 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
-
 module.exports = {
     mode: 'development',
     entry: path.resolve(__dirname, './src/index.js'),

@@ -31,4 +31,31 @@ html(lang='en')
                 img(src='./img/shop.svg' alt='basket')
                 span.navigation-icon__functional-basket
     header
+      section.slider
+        .slider-container
+          .slider-container__img
+            .slider-container-link
+              a.slider-container-link__oldbook(href)
+                img(src='./img/oldbook.svg' alt)
+              a.slider-container-link__topbook(href)
+                img(src='./img/topbook.svg' alt)
+        .slider-dots
+          .slider-dots__banner
+            img(src='./img/dots.svg' alt)
+          .slider-dots__banner2
+            img(src='./img/dots.svg' alt)
+          .slider-dots__banner3
+            img(src='./img/dots.svg' alt)
     main
+      section.books-categories
+        .categories-books
+          aside.categories-books__genre
+          - var categories = ["Architecture", "Art & Fashion", "Biography", "Business", "Crafts & Hobbies", "Drama", "Fiction", "Food & Drink", "Health & Wellbeing", "History & Politics", "Humor", "Poetry", "Psychology", "Science", "Technology", "Travel & Maps"]
+            ul
+              each category in categories 
+                li                    
+                  button.categories-books__genre-btn= category 
+      section.books       
+        .categories-books-card
+          .categories-books-card-author
+          button.categories-books-card__load-more
