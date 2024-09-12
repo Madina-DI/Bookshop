@@ -5,57 +5,56 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     title Document
   body
-    nav.navigation
-      .navigation-block
-        .navigation-container
-          .navigation-logo
-            h1 Bookshop
-          .navigation-menu
-            button.navigation-menu__button
-              a(href='#') books
-            button.navigation-menu__button
-              a(href='#') audiobooks
-            button.navigation-menu__button
-              a(href='#') Stationery & gifts
-            button.navigation-menu__button
-              a(href='#') blog
-          .navigation-icon
-            button.navigation-icon__users(title='Аккаунт')
-              a(href='#')
-                img(src='./img/user.svg' alt='account')
-            button.navigation-icon__search(title='Поиск')
-              a(href='#')
-                img(src='./img/search.svg' alt='search')
-            button.navigation-icon__shop(title='Корзина')
-              a(href='#')
-                img(src='./img/shop.svg' alt='basket')
-                span.navigation-icon__functional-basket
+    .container 
+      nav.navigation
+        .navigation-block
+          .navigation-container
+            .navigation-logo
+              h1 Bookshop
+            .navigation-menu
+              button.navigation-menu__button
+                a(href='#') books
+              button.navigation-menu__button
+                a(href='#') audiobooks
+              button.navigation-menu__button
+                a(href='#') Stationery & gifts
+              button.navigation-menu__button
+                a(href='#') blog
+            .navigation-icon
+              button.navigation-icon__users(title='Аккаунт')
+                a(href='#')
+                  img(src='./img/user.svg' alt='account')
+              button.navigation-icon__search(title='Поиск')
+                a(href='#')
+                  img(src='./img/search.svg' alt='search')
+              button.navigation-icon__shop(title='Корзина')
+                a(href='#')
+                  img(src='./img/shop.svg' alt='basket')
+                  span.navigation-icon__functional-basket
     header
-      section.slider
-        .slider-container
-          .slider-container__img
-            .slider-container-link
-              a.slider-container-link__oldbook(href)
-                img(src='./img/oldbook.svg' alt)
-              a.slider-container-link__topbook(href)
-                img(src='./img/topbook.svg' alt)
-        .slider-dots
-          .slider-dots__banner
-            img(src='./img/dots.svg' alt)
-          .slider-dots__banner2
-            img(src='./img/dots.svg' alt)
-          .slider-dots__banner3
-            img(src='./img/dots.svg' alt)
-    main
-      section.books-categories
-        .categories-books
-          aside.categories-books__genre
+      section.slider.slider-container
+        .slider-container__img
+          .slider-container-link
+            a.slider-container-link__oldbook(href)
+              img(src='./img/oldbook.svg' alt)
+            a.slider-container-link__topbook(href)
+              img(src='./img/topbook.svg' alt)
+      .slider-dots
+        .slider-dots__banner
+          img(src='./img/dots.svg' alt)
+        .slider-dots__banner2
+          img(src='./img/dots.svg' alt)
+        .slider-dots__banner3
+          img(src='./img/dots.svg' alt)
+    main.categories
+      section.categories-books
           - var categories = ["Architecture", "Art & Fashion", "Biography", "Business", "Crafts & Hobbies", "Drama", "Fiction", "Food & Drink", "Health & Wellbeing", "History & Politics", "Humor", "Poetry", "Psychology", "Science", "Technology", "Travel & Maps"]
-            ul
+            ul.categories-books__genre
               each category in categories 
                 li                    
                   button.categories-books__genre-btn= category 
       section.books       
-        .categories-books-card
-          .categories-books-card-author
-          button.categories-books-card__load-more
+      .categories-books-card
+        .categories-books-card-author
+        button.categories-books-card__load-more
+  //- script(type='text/javascript', src='./index.js')  
