@@ -37,11 +37,14 @@ module.exports = {
         }, 
     ],
 },
-plugins: [new MiniCssExtractPlugin(), 
-          new HtmlWebpackPlugin({
+plugins: [
+    new MiniCssExtractPlugin({
+        filename: 'main.css',
+    }), 
+    new HtmlWebpackPlugin({
         template: './src/index.pug',
-        }),
-        new CopyWebpackPlugin({
+    }),
+    new CopyWebpackPlugin({
             patterns: [
               { from: 'src/img', to: 'img' },
             ],
