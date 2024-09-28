@@ -36,9 +36,9 @@ html(lang='en')
       section.slider.slider-container
         .slider-container__img
           .slider-container-link
-            a.slider-container-link__oldbook(href)
+            a.slider-container-link__oldbook(href='#')
               img(src='./img/oldbook.svg' alt)
-            a.slider-container-link__topbook(href)
+            a.slider-container-link__topbook(href='#')
               img(src='./img/topbook.svg' alt)
       .slider-dots
         .slider-dots__banner
@@ -47,15 +47,16 @@ html(lang='en')
           img(src='./img/dots.svg' alt)
         .slider-dots__banner3
           img(src='./img/dots.svg' alt)
-    main.categories
-      section.categories-books
-          - var categories = ["Architecture", "Art & Fashion", "Biography", "Business", "Crafts & Hobbies", "Drama", "Fiction", "Food & Drink", "Health & Wellbeing", "History & Politics", "Humor", "Poetry", "Psychology", "Science", "Technology", "Travel & Maps"]
-            ul.categories-books__genre
-              each category in categories 
-                li                    
-                  button.categories-books__genre-btn= category 
-      section.books       
-      .categories-books-card
-        .categories-books-card-author
-        button.categories-books-card__load-more
-  //- script(type="text/javascript" src="../dist/main.js")  
+    main
+      .categories
+        section.books.categories-books
+            - var categories = ["Architecture", "Art & Fashion", "Biography", "Business", "Crafts & Hobbies", "Drama", "Fiction", "Food & Drink", "Health & Wellbeing", "History & Politics", "Humor", "Poetry", "Psychology", "Science", "Technology", "Travel & Maps"]
+              ul.categories-books__genre
+                each category in categories 
+                  li                    
+                    button.categories-books__genre-btn= category 
+        section.books.categories-books-card
+          .categories-books-card-author
+      div
+        button.books-button Load more
+    //- script(type="text/javascript" src="../dist/main.js")  

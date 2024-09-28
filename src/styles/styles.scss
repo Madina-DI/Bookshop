@@ -16,7 +16,7 @@ main {
     width: 1440px;
     margin: 0 auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .navigation {
@@ -125,25 +125,27 @@ button:last-child {
     flex-direction: row;
     gap: 10px;
     width: 32px;
-    margin-bottom: 6%;
+    // margin-bottom: 6%;
 }
 
 .categories {
     display: flex;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 20px 0;
-    justify-content: flex-start;
+    // max-width: 1440px;
+    // margin: 0 auto;
+    // padding: 20px 0;
+    // justify-content: flex-start;
 
     .categories-books {
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: rgb(239, 238, 246);
-        width: 416px;
-        height: 710px;
-        box-sizing: border-box;
+        width: 400px;
+        height: 670px;
+        // box-sizing: border-box;
         padding: 20px;
+        margin: 9rem auto auto auto;
+        position: relative;
     
         .categories-books__genre {
             display: flex;
@@ -167,15 +169,68 @@ button:last-child {
                 border: none;
                 cursor: pointer;
                 color:#5C6A79;
-            
-                    &:hover {
-                        color: #1C2A39;
-                    }
+            }
+
+            .categories-books__genre-btn.active {
+                font-weight: bold;
+                font-size: 16px;
+
             }
         }
     }
 
+    li.active {
+        list-style-type: disc;
+        list-style-position: inside;
+    }
+
+    .categories-books-card {
+        display: grid;
+        grid-template-columns: 27rem 27rem;  
+        max-width: 64rem;
+        gap: 6rem;
+        margin: 12rem 8rem auto auto;
+        position: relative;
+        z-index: 1;
+        left: -50px;
+    
+        .book-card {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+    
+            .book-card__cover {
+                width: 200px;
+                height: 300px;
+                }
+    
+            .book-card-text {
+                display: flex;
+                flex-direction: column;
+
+                .book-card-text__description {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
 }
+
+.books-button {
+    width: 175px;
+    height: 44px; 
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 9.75px;
+    text-align: center;
+    color: #4C3DB2;
+    margin-top: 85px;
+    }
+
 
 .active-categories {
     font-weight: bold;
@@ -227,4 +282,8 @@ button:last-child {
         }  
     }
 }
+
+
+
+
 
