@@ -1,6 +1,6 @@
 const entities = [
     {
-        img: "./img/banner.png",
+        img: "./img/banner1.png",
         dot: document.querySelector('.slider-dots__banner'),
     },
     {

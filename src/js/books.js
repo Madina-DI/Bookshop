@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 categoryButtons.forEach(button => {
     button.addEventListener('click', function() {
-    categoryButtons.forEach(btn => btn.classList.remove('active')); // Удалить класс "active" у всех категорий
-    this.classList.add('active'); // Добавить класс "active" к выбранной категории
-    currentPage = 0; //Сброс текущей страницы при смене категории
-    // const selectedCategory = this.textContent.trim(); // Сделать запрос книг для выбранной категории
-    loadBooksForCategory(this.textContent.trim()); //Загрузить книги для выбранной категории
+      categoryButtons.forEach(btn => btn.classList.remove('active')); // Удалить класс "active" у всех категорий
+      this.classList.add('active'); // Добавить класс "active" к выбранной категории
+      currentPage = 0; //Сброс текущей страницы при смене категории
+      // const selectedCategory = this.textContent.trim(); // Сделать запрос книг для выбранной категории
+      loadBooksForCategory(this.textContent.trim()); //Загрузить книги для выбранной категории
     });
 });
 
@@ -41,13 +41,12 @@ function loadBooksForCategory(category, append = false) {   // Функция д
           .then(data => {
             console.log('Загруженные книги:', data.items);
 
-            const books = data.items.map (book => ({
+            const books = data.items.map(book => ({
               cover: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : 'плейсхолдер для обложки',
               author: book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Неизвестный автор',
               title: book.volumeInfo.title,
-              // rating: book.volumeInfo.averageRating || 'отсутствует',
-              rating: book.saleInfo.listPrice ? (book.saleInfo.listPrice.amount / 10) *100+"%": "40%",
-              ratingCount: book.volumeInfo.ratingCount ? book.volumeInfo.ratingCount +"m rating": '',
+              rating: book.volumeInfo.averageRating || null,
+              ratingsCount: book.volumeInfo.ratingsCount || null ,
               description: book.volumeInfo.description,
               price: book.saleInfo.retailPrice ? `${book.saleInfo.retailPrice.amount} ${book.saleInfo.retailPrice.currencyCode}` : 'Цена не указана'
             }));
@@ -65,45 +64,50 @@ function loadBooksForCategory(category, append = false) {   // Функция д
       }
   
       books.forEach(book => {
+
+        const rating = book.rating || null;
+        const ratingsCount = book.ratingsCount || null;
+
+        let starsHTML = '';
+
+        if (rating) {
+          for (let i = 1; i <= 5; i++ ) {
+
+            if (i <= rating) {
+
+              starsHTML += `<span style="color: #F2C94C; font-size: 20px;">★</span>`;
+            } else {
+              starsHTML += `<span style="color: lightgrey; font-size: 20px;">★</span>`;
+            }
+          }
+        }
+
+            
+
           const bookHTML = `
             <div class="book-card">
                 <img class="book-card__cover" src="${book.cover}" alt="${book.title}">
                 <div class="book-card-text">
                   <p class="book-card-text__author">${book.author}</p>
                   <h3 class="book-card-text__title">${book.title}</h3>
-                  <div>
-                    <p class="book-card-text__rating-count">${book.ratingCount}</p>
-                    <svg width="70" height="32" viewBox="0 0 160 32">
-                      <defs>
-                        <mask id="perc${book.id}">
-                          <rect x="0" y="0" width="100%" height="100%" fill="white" />
-                          <rect x="48%" y="0" width="100%" height="100%" fill="grey" />
-                        </mask>
-
-                        <symbol viewBox="0 0 32 32" id="star">
-                          <path d="M31.547 12a.848.848 0 00-.677-.577l-9.427-1.376-4.224-8.532a.847.847 0 00-1.516 0l-4.218 8.534-9.427 1.355a.847.847 0 00-.467 1.467l6.823 6.664-1.612 9.375a.847.847 0 001.23.893l8.428-4.434 8.432 4.432a.847.847 0 001.229-.894l-1.615-9.373 6.822-6.665a.845.845 0 00.214-.869z" />
-                        </symbol>
-                        <symbol viewBox="0 0 160 32" id="stars">
-                          <use xlink:href="#star" x="-64" y="0"></use>
-                          <use xlink:href="#star" x="-32" y="0"></use>
-                          <use xlink:href="#star" x="0" y="0"></use>
-                          <use xlink:href="#star" x="32" y="0"></use>
-                          <use xlink:href="#star" x="64" y="0"></use>
-                        </symbol>
-                      </defs>
-
-                      <use xlink:href="#stars" fill="green" stroke="black" mask="url(#perc${book.id})"></use>
-                    </svg>
-                    
-                  </div>
+                  ${rating ? `
+                  <div class="book-card-text-rating">
+                    <div class="book-card-text__stars">
+                      ${starsHTML}
+                    </div>
+                  ${ratingsCount ? `<p class="book-card-text__rating-count">${book.ratingsCount}</p>` : ""}       
+                </div>
+                ` : ''}           
                   <p class="book-card-text__description">${book.description}</p>
                   <p class="book-card-text__price">${book.price}</p>
-                  <button class ="button-buy">BUY NOW</button>
+                  <button class="book-card-button_buy">BUY NOW</button>
                 </div>
             </div>`;
           bookContainer.innerHTML += bookHTML;
-      });
-  }    
+      });
+    }
+  
+  
   
 
 
