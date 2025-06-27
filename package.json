@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Frontend project bookshopnpm",
   "main": "index.js",
+  "homepage": "https://madina-di.github.io/Bookshop/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
@@ -39,6 +40,5 @@
   "dependencies": {
     "core-js": "^3.38.1",
     "nodemon": "^3.1.4"
-  }  
+  }
 }
-
