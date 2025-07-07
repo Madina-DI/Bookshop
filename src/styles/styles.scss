@@ -340,6 +340,136 @@ main {
         }  
     }
 }
+@media (max-width: 1024px) {
+  main {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .categories-books {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+
+  .categories-books-card {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin: 4rem auto;
+    left: 0;
+  }
+
+  .book-card {
+    flex-direction: column;
+    text-align: center;
+
+    .book-card__cover {
+      width: 150px;
+      height: 225px;
+    }
+
+    .book-card-text__price,
+    .book-card-text__title,
+    .book-card-text__description {
+      text-align: center;
+    }
+  }
+
+  .navigation-container {
+    flex-direction: column;
+    gap: 10px;
+
+    .navigation-menu {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .navigation-icon {
+      justify-content: center;
+    }
+  }
+
+  .slider-container__img {
+    height: 400px;
+
+    .slider-container-link__oldbook,
+    .slider-container-link__topbook {
+      display: none;
+    }
+  }
+}
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .navigation-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navigation-menu {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .slider-container__img {
+    height: auto;
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  .slider-container-link {
+    display: none;
+  }
+
+  .categories {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .categories-books {
+    width: 100%;
+    height: auto;
+    margin: 2rem auto;
+  }
+
+  .categories-books-card {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 2rem auto;
+    left: 0;
+  }
+
+  .book-card {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .book-card__cover {
+      width: 100%;
+      height: auto;
+    }
+
+    .book-card-text {
+      width: 100%;
+    }
+  }
+
+  .books-button {
+    width: 100%;
+    margin: 2rem auto;
+  }
+}
 
 
 
