@@ -248,6 +248,9 @@ main {
                     overflow: hidden;
                     margin: 0px;
                     color: #5C6A79;
+
+                     line-clamp: 3;
+                     box-orient: vertical;
                 }
 
                 .book-card-text__price {
@@ -388,18 +391,11 @@ main {
       justify-content: center;
     }
   }
-
-  .slider-container__img {
-    height: 400px;
-
-    .slider-container-link__oldbook,
-    .slider-container-link__topbook {
-      display: none;
-    }
-  }
 }
+
 @media (max-width: 768px) {
-  html, body {
+  html,
+  body {
     width: 100%;
     overflow-x: hidden;
   }
@@ -421,28 +417,56 @@ main {
   }
 
   .slider-container__img {
-    height: auto;
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    display: none;
+    background-image: none;
   }
 
   .slider-container-link {
     display: none;
   }
 
+  .slider-dots {
+    display: none;
+  }
+
   .categories {
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
   }
 
   .categories-books {
-    width: 100%;
-    height: auto;
-    margin: 2rem auto;
+    flex-direction: column;
+    align-items: flex-start;
   }
+
+  .dropdown {
+    position: relative;
+    width: 100%;
+
+      .dropdown-toggle {
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .categories-books__genre {
+        display: none;
+        position: absolute;
+        background: white;
+        border: 1px solid #ddd;
+        width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        z-index: 1000;
+      }
+
+      &.open .categories-books__genre {
+        display: block;
+      }
+    }
 
   .categories-books-card {
     grid-template-columns: 1fr;
@@ -470,8 +494,3 @@ main {
     margin: 2rem auto;
   }
 }
-
-
-
-
-
