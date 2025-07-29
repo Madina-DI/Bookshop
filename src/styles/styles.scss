@@ -358,8 +358,8 @@ main {
     height: auto;
   }
 
-  .categories-books-card {
-    grid-template-columns: 1fr;
+  .categories .categories-books-card {
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     margin: 4rem auto;
     left: 0;
@@ -394,6 +394,11 @@ main {
       justify-content: center;
     }
   }
+  .slider-container .slider-container__img {
+    height: 600px;
+    width: 96%;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -581,16 +586,20 @@ main {
   body {
     font-size: 14px;
   }
-  .categories .categories-books-card .book-card {
-    gap: 0px;
-    .book-card__cover {
-      width: 120px;
-      margin-left: -1rem;
-    }
-    .book-card-text .book-card-button_buy {
-      width: 120px;
-      margin-left: -30px;
-    }
+  .categories .categories-books-card {
+    margin: 0px 70px auto -2rem;
+    gap: 0 rem;  
+    .book-card {
+      gap: 0px;
+      .book-card__cover {
+        width: 100px;
+        margin-left: -1rem;
+      }
+      .book-card-text .book-card-button_buy {
+        width: 100px;
+        margin-left: -30px;
+      }
+    } 
   }
   .genre-button {
     font-size: 13px;
@@ -609,16 +618,26 @@ main {
     font-size: 13px;
     padding: 8px 18px;
   }
+
+  .slider-container .slider-container__img {
+    height: 250px;
+    width: 97%;
+  }
+
 }
   @media (max-width:320px) {
      body {
     font-size: 12px;
   }
-    .categories .categories-books-card .book-card 
-    .book-card__cover {
-    margin-left: -1rem;
-    width: 95px;
-  }
+    .categories 
+    .categories-books-card 
+    .book-card {
+      max-width: 240px;
+      .book-card__cover {
+        margin-left: -1rem;
+        width: 95px;
+      }
+    }
   .categories .categories-books-card .book-card .book-card-text .book-card-button_buy {
     margin-left: -30px;
     width: 90px;
