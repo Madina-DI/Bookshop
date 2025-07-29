@@ -625,17 +625,21 @@ main {
   }
 
 }
-  @media (max-width:320px) {
+  @media (max-width:390px) {
      body {
     font-size: 12px;
   }
-    .categories 
-    .categories-books-card 
-    .book-card {
-      max-width: 240px;
-      .book-card__cover {
-        margin-left: -1rem;
-        width: 95px;
+    .categories {
+      margin: 0;
+      .categories-books-card {
+        margin: 0 25px auto -1rem;   
+        .book-card {
+          max-width: 240px;
+          .book-card__cover {
+            margin-left: -1rem;
+            width: 95px;
+          }
+        }
       }
     }
   .categories .categories-books-card .book-card .book-card-text .book-card-button_buy {
