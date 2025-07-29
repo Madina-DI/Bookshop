@@ -610,3 +610,24 @@ main {
     padding: 8px 18px;
   }
 }
+  @media (max-width:320px) {
+     body {
+    font-size: 12px;
+  }
+    .categories .categories-books-card .book-card 
+    .book-card__cover {
+    margin-left: -1rem;
+    width: 95px;
+  }
+  .categories .categories-books-card .book-card .book-card-text .book-card-button_buy {
+    margin-left: -30px;
+    width: 90px;
+  }
+  .categories .categories-books {
+    padding: 0px 8px;
+  }
+  .books.categories-books-card {
+  gap: 8px;
+  grid-template-columns: 0fr 0fr;
+  }
+}
